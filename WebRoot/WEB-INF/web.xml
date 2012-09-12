@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- ����WebӦ�������ļ��ĸ�Ԫ�أ���ָ�������ļ���Schema��Ϣ -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml,
+			/WEB-INF/daoContext.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.apache.struts2.dispatcher.ng.listener.StrutsListener
+		</listener-class>
+  </listener>
+  <filter>
+    <filter-name>struts-prepare</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter
+		</filter-class>
+  </filter>
+  <filter>
+    <filter-name>sitemesh</filter-name>
+    <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter
+		</filter-class>
+  </filter>
+  <filter>
+    <filter-name>struts-execute</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter
+		</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts-prepare</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>sitemesh</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>struts-execute</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>img</servlet-name>
+    <servlet-class>org.alex.web.AuthImg</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>img</servlet-name>
+    <url-pattern>/authImg.jpg</url-pattern>
+  </servlet-mapping>
+</web-app>
